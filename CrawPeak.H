@@ -40,7 +40,6 @@
 
 
 typedef float mz_type;
-using namespace std;
 //class CrawPeak;
 //class SlimCrawPeak;
 

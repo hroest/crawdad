@@ -96,13 +96,13 @@ class CrawdadWrapper
      *
      * Determines the maximal and minimal intensities and then calls SetChromatogram
     */
-    void SetChromatogram(vector<float>& times, vector<float> intensities);
+    void SetChromatogram(std::vector<float>& times, std::vector<float> intensities);
 
     /** Initialize with a double-chromatogram
      *
      * Determines the maximal and minimal intensities and then calls SetChromatogram
     */
-    void SetChromatogram(vector<double>& times, vector<double> intensities);
+    void SetChromatogram(std::vector<double>& times, std::vector<double> intensities);
 
     /** Execute the algorithm
      *
@@ -127,7 +127,7 @@ class CrawdadWrapper
     crawpeaks::SlimCrawPeak GetPeak(int startIndex, int endIndex);
 
   private:
-    void SetChromatogram(vector<float>& intensities, int maxIntensityIndex, double baselineIntensity);
+    void SetChromatogram(std::vector<float>& intensities, int maxIntensityIndex, double baselineIntensity);
 
 
 };

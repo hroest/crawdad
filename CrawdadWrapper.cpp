@@ -20,6 +20,7 @@
 #include "CrawdadWrapper.h"
 
 using namespace crawpeaks;
+using namespace std;
 
 void CrawdadWrapper::SetChromatogram(vector<double>& times, vector<double> intensities)
 {

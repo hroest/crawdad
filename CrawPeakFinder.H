@@ -79,23 +79,23 @@ public :
   GaussSmoother * gs_0d;
   
   ///chromatogram passed into object
-  vector<float> chrom;
+  std::vector<float> chrom;
   ///second derivative of the passed-in chromatogram
-  vector<float> chrom_2d;
-  vector<float> chrom_1d;
-  vector<float> chrom_0d;
-  ///scratch vector for the background intensities
-  vector<float> chrom_bg_scratch;
+  std::vector<float> chrom_2d;
+  std::vector<float> chrom_1d;
+  std::vector<float> chrom_0d;
+  ///scratch std::vector for the background intensities
+  std::vector<float> chrom_bg_scratch;
 
   ///peaks found on chromatogram
-  vector<stored_peak_t> sps;
+  std::vector<stored_peak_t> sps;
   int mz_idx;
-  vector<int> minus_crosses;
-  vector<int> plus_crosses;
-  vector<int> maxs;
-  vector<int> mins;
-  vector<uint> peaks;
-  vector<uint> valleys;
+  std::vector<int> minus_crosses;
+  std::vector<int> plus_crosses;
+  std::vector<int> maxs;
+  std::vector<int> mins;
+  std::vector<uint> peaks;
+  std::vector<uint> valleys;
 
 
 
@@ -121,7 +121,7 @@ public :
     this->slim = slim;
   }
 
-  virtual void set_chrom (const vector<float> & f, 
+  virtual void set_chrom (const std::vector<float> & f, 
 			  int mz_idx);
 
   void clear();
@@ -220,14 +220,14 @@ class CrawPeakFinder : public BaseCrawPeakFinder {
 
 public :
 
-  vector<stored_peak_t> sps;
+  std::vector<stored_peak_t> sps;
   virtual void peak_voodoo( int lh_valley, int rh_valley, int peak_loc );
   virtual void clear_sps();
   virtual int get_num_stored_peaks();
   virtual SlimCrawPeak * get_peak_ptr ( int idx );
   CrawPeakFinder () : BaseCrawPeakFinder() {};  
   CrawPeakFinder( CrawPeakMethod m ) : BaseCrawPeakFinder(m) {};
-  //what a headache, this needs to be defined in each class due to sps vector being for
+  //what a headache, this needs to be defined in each class due to sps std::vector being for
   //different types
   virtual void extend_peak_set();
 
@@ -238,14 +238,14 @@ class StackCrawPeakFinder : public BaseCrawPeakFinder {
 
 public:
   typedef SlimCrawPeak stored_peak_t;
-  vector<stored_peak_t> sps;
+  std::vector<stored_peak_t> sps;
   virtual void peak_voodoo( int lh_valley, int rh_valley, int peak_loc );
   virtual void clear_sps();
   virtual int get_num_stored_peaks();
   virtual SlimCrawPeak * get_peak_ptr ( int idx );
   StackCrawPeakFinder () : BaseCrawPeakFinder() {};  
   StackCrawPeakFinder( CrawPeakMethod m ) : BaseCrawPeakFinder(m) {};
-  //what a headache, this needs to be defined in each class due to sps vector being for
+  //what a headache, this needs to be defined in each class due to sps std::vector being for
   //different types
   virtual void extend_peak_set();
   void extend_peak_set_weird ();
@@ -255,10 +255,10 @@ public:
 class CrawPeakFinderLocated : public CrawPeakFinder {
 public:
   float current_mz;
-  vector<float> rts;
-  vector<mz_type> mzs;
+  std::vector<float> rts;
+  std::vector<mz_type> mzs;
   virtual CrawPeakLocated * construct_peak( int lh_valley , int rh_valley, int peak_loc );
-  virtual void set_chrom (const vector<float> & f, int mz_idx);
+  virtual void set_chrom (const std::vector<float> & f, int mz_idx);
   CrawPeakFinderLocated() {
   }
   CrawPeakFinderLocated( CrawPeakMethod m, const std::vector<float> & rts, 
