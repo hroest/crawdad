@@ -22,7 +22,7 @@
 using namespace crawpeaks;
 using namespace std;
 
-void CrawdadWrapper::SetChromatogram(vector<double>& times, vector<double> intensities)
+void CrawdadWrapper::SetChromatogram(vector<double>& /* times */, vector<double> intensities)
 {
     // TODO: Check times to make sure they are evenly spaced
 
@@ -52,7 +52,7 @@ if (baselineIntensity == numeric_limits<double>::max())
     SetChromatogram(intensitiesCrawdad, maxIntensityIndex, baselineIntensity);
 }
 
-void CrawdadWrapper::SetChromatogram(vector<float>& times, vector<float> intensities)
+void CrawdadWrapper::SetChromatogram(vector<float>& /* times */, vector<float> intensities)
 {
     // TODO: Check times to make sure they are evenly spaced
 

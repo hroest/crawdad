@@ -213,7 +213,7 @@ float spectra_pair_maxlog10 ( const std::vector<float> & s1, const std::vector<f
   float spectra_pair_either_zero ( const std::vector<float> & s1, const std::vector<float> & s2);
   //inline as it is a trivial function, but it is used as a function pointer elsewhere along with it's SpectraCompFunc brethren 
   //see SpectraCompareConfig.H
-inline float spectra_pair_uniform_weight ( const std::vector<float> & s1, const std::vector<float> & s2) { return 1.0f; }
+inline float spectra_pair_uniform_weight ( const std::vector<float> & /* s1 */, const std::vector<float> & /* s2 */) { return 1.0f; }
 
   float spectra_noise_est ( const std::vector<float> & s1, const std::vector<float> & s2, double s1_sqrsum , double s2_sqrsum , double resolution );
 float spectra_cosine_angle ( const std::vector<float> & s1, const std::vector<float> & s2, 

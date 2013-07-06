@@ -44,10 +44,10 @@ namespace crawpeaks {
    }
 
    SlimCrawPeak::SlimCrawPeak( int start_idx, int stop_idx, int peak_idx, 
-			     const std::vector<float> & raw ,std::vector<float> & scratch , int mz_idx  ) : 
+			     const std::vector<float> & raw ,std::vector<float> & /* scratch */ , int mz_idx  ) : 
+    peak_rt_idx(peak_idx) , 
     start_rt_idx(start_idx) , 
     stop_rt_idx(stop_idx) , 
-    peak_rt_idx(peak_idx) , 
     mz_idx(mz_idx) 
    {
      init();

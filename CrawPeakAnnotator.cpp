@@ -197,7 +197,7 @@ int CrawPeakAnnotator::_get_peakloc_by_2d ( int start_idx, int stop_idx ) {
   return crawutils::max_idx_vect_bound(pf->chrom_2d,start_idx,stop_idx);
 }
 
-int CrawPeakAnnotator::_get_peakloc_by_centroid ( int start_idx, int stop_idx ) {
+int CrawPeakAnnotator::_get_peakloc_by_centroid ( int /* start_idx */, int /* stop_idx */ ) {
    throw("not implemented");
 }
 
@@ -382,7 +382,7 @@ bool CrawPeakAnnotator::susceptible_to_merge ( const SlimCrawPeakPtr & lhs, cons
     return false;
 }
 
-bool CrawPeakAnnotator::susceptible_to_merge_by_shape ( const SlimCrawPeakPtr & lhs, const SlimCrawPeakPtr & rhs ) {
+bool CrawPeakAnnotator::susceptible_to_merge_by_shape ( const SlimCrawPeakPtr & /* lhs */, const SlimCrawPeakPtr & /* rhs */ ) {
    return false; //ie not done yet
 
 }
@@ -843,7 +843,7 @@ void CrawPeakAnnotator::extend_to_1d_zero_local_minimum( SlimCrawPeak & peak,  b
 }
 
 
-void CrawPeakAnnotator::extend_peak_set ( const std::vector<SlimCrawPeakPtr> & in_peaks, std::vector<SlimCrawPeakPtr> & out_peaks, bool start_at_peak ) {
+void CrawPeakAnnotator::extend_peak_set ( const std::vector<SlimCrawPeakPtr> & in_peaks, std::vector<SlimCrawPeakPtr> & out_peaks, bool /* start_at_peak */ ) {
 
 	if ( in_peaks.size() == 0  ) {
 	   return;
