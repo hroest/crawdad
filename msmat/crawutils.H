@@ -373,7 +373,7 @@ data_type sum_list( data_type * d, size_t  l ) {
     t += d[i];
   }
   return t;
-};
+}
 
 ///mean of an stl container
 template<class cont, class value_type> 
@@ -539,7 +539,7 @@ data_type max_list( data_type * d, size_t l ) {
     }
   }
   return max;
-};
+}
 
 ///returns a std::pair<int, data_type> of the index and value of the first instance of the maximum
 template<typename data_type>
@@ -558,7 +558,7 @@ bool Comp_PairFloatOther_LessThan(const std::pair<float,T>& a, const std::pair<f
 template<typename data_type>
 uint max_idx_vect( std::vector<data_type> & v ) {
   return max_idx_vect_bound(v,0,v.size());
-};
+}
 
 ///returns maximum index within bounds [ start, stop ) (not inclusive of stop)
 template<typename data_type>
@@ -572,7 +572,7 @@ uint max_idx_vect_bound( std::vector<data_type> & v , uint start, uint stop ) {
     }
   }
   return max_idx;
-};
+}
 
 ///returns index of minimum values within bounds [ start, stop ) (not inclusive of stop)
 template<typename data_type>
@@ -586,7 +586,7 @@ uint min_idx_vect_bound( std::vector<data_type> & v , uint start, uint stop ) {
     }
   }
   return min_idx;
-};
+}
 
 
 ///crude deserializer for arrays. calls memcpy to load binary data from a char * to a pointer
@@ -614,14 +614,14 @@ template <typename data_type>
 void load_array( data_type * out_val, const char * field_data, int char_len ) {
 	//TODO -- deal with different endianness in the data
 	memcpy((void*)out_val, (void*)field_data, char_len );	
-};
+}
 
 
 template <typename data_type>
 void load_array( data_type * out_val , const char * field_data, int char_len, int num_fields ) {
 	//assert(num_fields * sizeof(data_type) == char_len);
 	load_array(out_val, field_data, char_len);
-};
+}
 
 
 	
@@ -706,7 +706,7 @@ void output_vector ( std::ostream & o, std::vector<T> & v, char delim=' ' ) {
 	}
     o << v[v.size()-1];
     }
-};
+}
 
 ///creates a range from lh to rh with jump 
 template <typename T>
@@ -716,7 +716,7 @@ void create_range ( T lh, T rh, T jump, std::vector<T> & output ) {
       output.push_back(p);
       p += jump;
     }
-};
+}
 
 
 ///given a vector of value
@@ -762,7 +762,7 @@ int retain_vector ( const std::vector<int> & idxs,  const std::vector<T> & vals,
 	 }
 
      return retained;
-};
+}
 
 
 
@@ -799,11 +799,10 @@ void mydelete ( T* & in_arg ) {
     }
 }
 
-};
+}
+
 
 namespace crawstats {
-
-
 
 
 template <typename T>

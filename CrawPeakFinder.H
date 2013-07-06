@@ -25,7 +25,7 @@ class CrawPeakAnnotator;
 class CrawPeakFinder;
 class CrawPeak;
 class CrawPeakMethod;
-};
+}
 
 #include "filters/GaussSmoother.H"
 #include "CrawPeak.H"

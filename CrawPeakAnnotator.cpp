@@ -36,7 +36,7 @@ PeaksUsedOrNot::PeaksUsedOrNot( SlimCrawPeakPtr * in_p ) {
           else {
               return (float)(*p)->peak_rt_idx;
           }
-      };
+      }
       float PeaksUsedOrNot::get_peak_height() const {
           if ( p == NULL ) {
               return -1.0f;
@@ -44,7 +44,7 @@ PeaksUsedOrNot::PeaksUsedOrNot( SlimCrawPeakPtr * in_p ) {
           else {
               return (*p)->peak_height;
           }
-      };
+      }
       float PeaksUsedOrNot::get_peak_raw_height() const {
           if ( p == NULL ) {
               return -1.0f;
@@ -52,7 +52,7 @@ PeaksUsedOrNot::PeaksUsedOrNot( SlimCrawPeakPtr * in_p ) {
           else {
               return (*p)->raw_height;
           }
-      };
+      }
 
 
 
@@ -119,7 +119,7 @@ void peak_lists::clear_peak ( SlimCrawPeakPtr & p ) {
           peak_stop_idxs[i]  = peaks[i]->stop_rt_idx;
           peak_peak_idxs[i]  = peaks[i]->peak_rt_idx;
         }
-    };
+    }
     ///returns the leftmost, and rightmost peak index which overlap with this peak
         std::pair<int,int> PeakCoordSet::find_overlap_bounds_by_peak_rt_idx ( SlimCrawPeakPtr & p ) {
         int rh_peak_idx = -1;
@@ -932,4 +932,4 @@ double CrawPeakAnnotator::get_area( int start_rt_idx, int stop_rt_idx ) {
    return crawutils::area_under_curve( *(get_active_chrom()) , start_rt_idx, stop_rt_idx );
 }
 
-};
+}

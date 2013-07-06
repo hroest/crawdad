@@ -42,7 +42,7 @@ void CrawPeakMethod::init() {
   this->extend_from_peak_rt = false;
   merge_peaks_list_based = false;
   extend_peak_set = false;
-};
+}
 
 #ifdef HAVE_CRAWDAD
 void CrawPeakMethod::process_opts( crawusage::optset & opts ) {

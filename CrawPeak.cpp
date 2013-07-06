@@ -283,4 +283,4 @@ CrawPeakLocated::CrawPeakLocated( int lh_valley, int rh_valley,
   CrawPeak( lh_valley, rh_valley, peak_loc, chrom, scratch, mz_idx ) {
 }
 
-};
+}

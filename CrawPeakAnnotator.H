@@ -223,6 +223,6 @@ int calc_len ( int start_rt_idx, int stop_rt_idx ) {
 
 };
 
-};
+}
 
 #endif

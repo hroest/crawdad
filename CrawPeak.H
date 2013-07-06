@@ -275,7 +275,7 @@ struct CompSlimCrawPeakPtrByPeakRTIdx {
 
 };
 
-};
+}
 
 #endif
 
