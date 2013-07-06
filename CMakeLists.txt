@@ -14,6 +14,7 @@ CrawPeakMethod.cpp
 msmat/crawutils.cpp
 filters/ChromSmoother.cpp
 filters/GaussSmoother.cpp
+CrawdadWrapper.cpp  
 )
 
 add_library(Crawdad ${my_sources})
