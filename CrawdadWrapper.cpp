@@ -180,3 +180,64 @@ int adjust_stop_rt = stop_rt - _widthDataWings;
 
     return result;
 }
+
+List<float>^ CrawdadPeakFinder::Intensities2d::get()
+{
+    // Make sure the 2d chromatogram is populated
+    if (_pPeakFinder->chrom_2d.size() != _pPeakFinder->chrom.size())
+    {
+        _pPeakFinder->chrom_2d.resize(_pPeakFinder->chrom.size());
+        _pPeakFinder->get_2d_chrom(_pPeakFinder->chrom, _pPeakFinder->chrom_2d);
+    }
+
+    // Marshall 2nd derivative peaks back to managed list
+  List<float>^ intensities2d = gcnew List<float>(((int)_pPeakFinder->chrom.size()) - _widthDataWings*2);
+
+    vector<float>::iterator it = _pPeakFinder->chrom_2d.begin() + _widthDataWings;
+    vector<float>::iterator itEnd = _pPeakFinder->chrom_2d.end() - _widthDataWings;
+    while (it < itEnd)
+    {
+        intensities2d->Add(*it);
+        it++;
+    }
+    return intensities2d;
+}
+
+List<float>^ CrawdadPeakFinder::Intensities1d::get()
+{
+    // Make sure the 2d chromatogram is populated
+    if (_pPeakFinder->chrom_1d.size() != _pPeakFinder->chrom.size())
+    {
+        _pPeakFinder->chrom_1d.resize(_pPeakFinder->chrom.size());
+        _pPeakFinder->get_1d_chrom(_pPeakFinder->chrom, _pPeakFinder->chrom_1d);
+    }
+
+    // Marshall 2nd derivative peaks back to managed list
+  List<float>^ intensities1d = gcnew List<float>(((int)_pPeakFinder->chrom.size()) - _widthDataWings*2);
+
+    vector<float>::iterator it = _pPeakFinder->chrom_1d.begin() + _widthDataWings;
+    vector<float>::iterator itEnd = _pPeakFinder->chrom_1d.end() - _widthDataWings;
+    while (it < itEnd)
+    {
+        intensities1d->Add(*it);
+        it++;
+    }
+    return intensities1d;
+}
+
+CrawdadPeak^ CrawdadPeakFinder::GetPeak(int startIndex, int endIndex)
+{
+startIndex += _widthDataWings;
+endIndex += _widthDataWings;
+    
+SlimCrawPeak peak;
+    _pPeakFinder->annotator.reannotate_peak(peak, startIndex, endIndex);
+_pPeakFinder->annotator.calc_fwhm(peak);
+
+peak.start_rt_idx -= _widthDataWings;
+peak.stop_rt_idx -= _widthDataWings;
+peak.peak_rt_idx -= _widthDataWings;
+
+    return gcnew CrawdadPeak(peak);
+}
+
