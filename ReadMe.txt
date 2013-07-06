@@ -13,6 +13,9 @@ Crawdad.vcproj
     information about the platforms, configurations, and project features selected with the
     Application Wizard.
 
+CMakeLists.txt
+    This is the main project file for CMake based projects (See below "Using CMake")
+
 Crawdad.cpp
     This is the main DLL source file.
 
@@ -29,3 +32,30 @@ AppWizard uses "TODO:" to indicate parts of the source code you
 should add to or customize.
 
 /////////////////////////////////////////////////////////////////////////////
+// Using CMake 
+/////////////////////////////////////////////////////////////////////////////
+
+This is a copy of Crawdad from the proteowizard project, taken at revision 4250
+using cmake to build.
+
+== Install ==
+Simpley type
+
+$ cmake .
+$ make
+
+== Build against ==
+To build against this, use the following code in your CMakeLists
+
+find_package(Crawdad)
+include_directories(${CRAWDAD_INCLUDE_DIRS})
+
+and then add the library as follows to your executables:
+
+target_link_libraries(myExecutable Crawdad)
+
+If cmake does not find the library, try to set the path to the place where you
+build Crawdad using the Crawdad_DIR parameter, for example:
+
+$ cmake -DCrawdad_DIR=/path/to/crawdad .
+

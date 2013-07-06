@@ -1,5 +1,4 @@
-### example CMakeLists.txt to develop programs using OpenMS
-project("Main")
+project("Crawdad")
 cmake_minimum_required(VERSION 2.6)
 
 include_directories(msmat)
@@ -21,4 +20,9 @@ add_library(Crawdad ${my_sources})
 
 add_executable(SimpleTest SimpleTest.C)
 target_link_libraries(SimpleTest Crawdad)
+
+
+configure_file(CrawdadConfig.cmake.in "${PROJECT_BINARY_DIR}/CrawdadConfig.cmake" @ONLY)
+
+export(TARGETS Crawdad FILE CrawdadLibrary.cmake)
 

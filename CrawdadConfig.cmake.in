@@ -1,0 +1,21 @@
+# Create imported target Crawdad
+# adapted from http://www.cmake.org/Wiki/CMake/Tutorials/How_to_create_a_ProjectConfig.cmake_file#The_FooBar.2FFooBarBuildTreeSettings.cmake.in_file
+
+# Compute paths
+get_filename_component(CRAWDAD_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+if(EXISTS "${CRAWDAD_CMAKE_DIR}/CMakeCache.txt")
+   # In build tree
+   set(CRAWDAD_INCLUDE_DIRS
+     "@PROJECT_SOURCE_DIR@/"
+     "@PROJECT_BINARY_DIR@/msmat")
+else()
+  set(CRAWDAD_INCLUDE_DIRS "${CRAWDAD_CMAKE_DIR}/@CONF_REL_INCLUDE_DIR@")
+endif()
+
+# Our library dependencies (contains definitions for IMPORTED targets)
+include("${CRAWDAD_CMAKE_DIR}/CrawdadLibrary.cmake")
+
+# These are IMPORTED targets created by CrawdadLibrary.cmake
+set(CRAWDAD_LIBRARIES Crawdad)
+
+
