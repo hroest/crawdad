@@ -37,7 +37,7 @@ class CrawdadWrapper
 
     void SetChromatogram(vector<double>& times, vector<double> intensities);
 
-    std::vector<crawpeaks::SlimCrawPeak> CalcPeaks(int max, std::vector<int> idIndices);
+    std::vector<crawpeaks::SlimCrawPeak> CalcPeaks();
 
     void getIntensities2d(std::vector<float>& intensities2d);
 

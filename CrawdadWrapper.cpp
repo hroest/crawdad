@@ -105,7 +105,7 @@ _pPeakFinder->clear();
     _pPeakFinder->set_chrom(intensities, 0);
 }
 
-std::vector<SlimCrawPeak> CrawdadWrapper::CalcPeaks(int max, std::vector<int> idIndices)
+std::vector<SlimCrawPeak> CrawdadWrapper::CalcPeaks()
 {
     // Find peaks
     _pPeakFinder->call_peaks();
@@ -142,42 +142,6 @@ int adjust_stop_rt = stop_rt - _widthDataWings;
 	}
         itPeak++;
     }
-
-    // If max is not -1, then return the max most intense peaks, plus any
-    // peaks that have been identified with MS/MS peptide search results
-    if (max != -1)
-    {
-        // Shorten the list before performing the slow sort by intensity.
-        // The sort shows up as bottleneck in a profiler.
-        int lenResult = result.size();
-        float intensityCutoff = 0;
-
-        // TODO 
-        throw "Not implemented";
-
-#if 0
-        FindIntensityCutoff(result, 0, (float)(totalArea/lenResult)*2, max, 1, intensityCutoff, lenResult);
-
-	    List<KeyValuePair<CrawdadPeak^, bool>>^ resultFiltered =
-            gcnew List<KeyValuePair<CrawdadPeak^, bool>>(lenResult);
-        for (int i = 0, lenOrig = result->Count; i < lenOrig; i++)
-        {
-            CrawdadPeak^ peak = result[i];
-            bool isIdentified = peak->IsIdentified(idIndices);
-            if (isIdentified || peak->Area >= intensityCutoff || intensityCutoff == 0)
-                resultFiltered->Add(KeyValuePair<CrawdadPeak^, bool>(peak, isIdentified));
-        }
-
-        resultFiltered->Sort(gcnew Comparison<KeyValuePair<CrawdadPeak^, bool>>(OrderIdAreaDesc));
-        if (max < resultFiltered->Count)
-            resultFiltered->RemoveRange(max, resultFiltered->Count - max);
-
-        result = gcnew List<CrawdadPeak^>(resultFiltered->Count);
-        for each (KeyValuePair<CrawdadPeak^, bool> peakId in resultFiltered)
-            result->Add(peakId.Key);
-#endif
-    }
-
     return result;
 }
 
