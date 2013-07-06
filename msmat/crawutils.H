@@ -1076,7 +1076,7 @@ void FDRsFromPvals(const std::vector<std::pair<float, T1> >& pvalsForFeatures, s
 
   for (int i = N-2; i >= 0; i--)
     {
-      prevFDR = FDR = min(static_cast<float>(final_pi0*N*pvalsForFeatures[i].first/(1.+i)), prevFDR);
+      prevFDR = FDR = std::min(static_cast<float>(final_pi0*N*pvalsForFeatures[i].first/(1.+i)), prevFDR);
       put_FDR_value(FDR, features[feature_index_from_type(pvalsForFeatures[i].second,1)],
 		    feature_index_from_type(pvalsForFeatures[i].second,2));
     }
