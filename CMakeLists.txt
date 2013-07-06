@@ -18,3 +18,6 @@ filters/GaussSmoother.cpp
 
 add_library(Crawdad ${my_sources})
 
+add_executable(SimpleTest SimpleTest.C)
+target_link_libraries(SimpleTest Crawdad)
+
