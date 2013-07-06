@@ -18,6 +18,9 @@ CrawdadWrapper.cpp
 
 add_library(Crawdad ${my_sources})
 
+add_definitions(-Wall -Wextra -Wno-non-virtual-dtor -Wno-long-long -Wno-variadic-macros)
+add_definitions(--pedantic)
+
 add_executable(SimpleTest SimpleTest.C)
 target_link_libraries(SimpleTest Crawdad)
 
