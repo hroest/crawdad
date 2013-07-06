@@ -113,6 +113,7 @@ public :
   }
   
 
+#if CRAWDAD_UNUSED
   bool can_smooth( const std::vector<float> & f ) {
     return true;
   }
@@ -120,6 +121,7 @@ public :
   void set_slim ( bool slim = true ) {
     this->slim = slim;
   }
+#endif
 
   virtual void set_chrom (const std::vector<float> & f, 
 			  int mz_idx);

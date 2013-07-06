@@ -93,6 +93,7 @@ typedef off_t off64_t; //if I compile with _LARGEFILE_SOURCE and _FILE_OFFSET_BI
 #define GETCWD getcwd
 #endif
 
+#ifdef CRAWDAD_UNUSED
 
 #define ALLZERO_SPECTRA_COMPARISON -2.0f;
 
@@ -129,8 +130,10 @@ struct ltflt
   }
 };
 
+#endif // CRAWDAD_UNUSED
 
 namespace crawutils { 
+#ifdef CRAWDAD_UNUSED
 const static double SQRSUM_NULL = -1.0;
 
 ///summarizes the dimensions of a 2D array
@@ -328,6 +331,8 @@ void extend_vector_set ( std::vector<T> & out_vec,  std::vector< std::vector<T> 
     }
 }
 
+#endif // CRAWDAD_UNUSED
+
 template <typename T> 
 double area_under_curve ( const std::vector<T> & vals, int start_idx, int stop_idx ) {
    double sum = 0.0;
@@ -343,6 +348,7 @@ double area_under_curve ( const std::vector<T> & vals ) {
 }
 
 
+#ifdef CRAWDAD_UNUSED
 ///reverses a vector in-place
 template<typename data_type>
 void reverse_vect( std::vector<data_type> & v ) {
@@ -506,6 +512,8 @@ data_type mult_accum_vects( const std::vector<data_type> & a, const std::vector<
     return accum;
 }
 
+#endif // CRAWDAD_UNUSED
+
 ///returns the maximum value of a vector
 template<typename data_type>
 data_type max_vect( const std::vector<data_type> & d ) {
@@ -588,6 +596,7 @@ uint min_idx_vect_bound( std::vector<data_type> & v , uint start, uint stop ) {
   return min_idx;
 }
 
+#ifdef CRAWDAD_UNUSED
 
 ///crude deserializer for arrays. calls memcpy to load binary data from a char * to a pointer
 /** \param d - array into which data will be loaded
@@ -642,6 +651,7 @@ bool unique_vect ( std::vector<T> & v) {
 	}
 	return true;
 }
+#endif // CRAWDAD_UNUSED
 
 ///is the vector monotonically increasing?				
 template<typename T> 
@@ -861,6 +871,7 @@ double var_w_mean( const std::vector<T> & v, double m ) {
   return rt / ( v.size() - 1 );
 }
 
+#if CRAWDAD_UNUSED
 
 ///yet another mean of a vector
 template<typename T>
@@ -1110,6 +1121,7 @@ void norm_to_unit_sqrsum( std::vector<T> & v ) {
   //for some reason there was trouble making this inline w/ gcc3.4
   //  /* inline */ double myincbet(double, double, double);
 
+#endif // CRAWDAD_UNUSED
 }
 
 #endif

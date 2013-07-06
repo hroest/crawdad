@@ -138,7 +138,7 @@ std::vector<SlimCrawPeak> CrawdadWrapper::CalcPeaks()
     vector<SlimCrawPeak>::iterator itPeakEnd = _pPeakFinder->sps.end();
     double totalArea = 0;
 int stop_rt = (int)_pPeakFinder->chrom.size() - _widthDataWings - 1;
-int adjust_stop_rt = stop_rt - _widthDataWings;
+// int adjust_stop_rt = stop_rt - _widthDataWings;
     while (itPeak != itPeakEnd)
     {
 	if (itPeak->start_rt_idx < stop_rt && itPeak->stop_rt_idx > _widthDataWings)

@@ -133,6 +133,7 @@ void ChromSmoother::smooth_vect_discrete( const std::vector<float> & raw_vec, st
 ///A bandpass filter may be a better approach. The motivation behind this function is that the matched filtration with
 ///gaussian or savitzky-golay may cause smoothing artifacts.
 
+#ifdef CRAWDAD_UNUSED
 
 int ChromSmoother::spike_filter( const std::vector<float> & raw_vec, std::vector<float> & smooth_vect )  {
    assert(raw_vec.size() == smooth_vect.size());
@@ -172,6 +173,7 @@ int ChromSmoother::spike_filter( const std::vector<float> & raw_vec, std::vector
    
     
 
+#endif // CRAWDAD_UNUSED
 
 void ChromSmoother::smooth_vect_fft( const std::vector<float> & raw_vec, std::vector<float> & out_vec, bool test) {
 

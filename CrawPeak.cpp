@@ -163,7 +163,9 @@ void CrawPeak::calc_baseline_stats( )  {
       //std::vector<float> counted_intensities(intensities.size(),0.0f);
       //already set in 
       //raw_area = crawutils::area_under_curve( raw , start_rt_idx, stop_rt_idx );
+#ifdef TEST_AREA
       double total_bg = 0.0;
+#endif
       float bg_val = raw[start_rt_idx];
       /* TODO -- trapezoidal area calculation in place, rather than
 	 copied to a vector and passed to a function */

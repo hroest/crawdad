@@ -100,6 +100,7 @@ public:
     return this->sd * (float)FHWM_TO_SD_CONV;
   }
 
+#if CRAWDAD_UNUSED
   void set_extend_to_lower_bound ( float val ) {
      this->extend_peak_to_lower_bound = true;
 
@@ -107,6 +108,7 @@ public:
   
   void set_extend_to_zero_crossing ( float val ) {
   }
+#endif
 
   void set_default_peak_opts();
   void set_extension_start_peak();

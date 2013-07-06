@@ -16,6 +16,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+#ifdef CRAWDAD_UNUSED
+
 #include <algorithm>
 #include <vector>
 #include <iterator>
@@ -248,7 +251,6 @@ void make_idx_segments ( int num_mzs, int num_rts, int num_mzs_segments, int num
     return (float)(numerator / denom);
   
   } 
-
 
   float spectra_cosine_angle ( const std::vector<float> & s1, const std::vector<float> & s2, 
 			       double s1_sqrsum, double s2_sqrsum ) {
@@ -725,7 +727,6 @@ void make_idx_segments ( int num_mzs, int num_rts, int num_mzs_segments, int num
     std::cerr << "dot product(a,b)"  << spectra_cosine_angle(a,b) << std::endl;
     return 1;
   }
-
 
   /* TODO -- deal with reverse ordered */
   template<typename data_type>
@@ -1540,4 +1541,5 @@ int main(int argc, char ** argv) {
 
 #endif
 
+#endif // CRAWDAD_UNUSED
 

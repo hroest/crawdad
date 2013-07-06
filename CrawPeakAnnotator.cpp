@@ -65,6 +65,7 @@ void peak_lists::resort_peaks() {
     std::sort(peaks_by_rt.begin(), peaks_by_rt.end(), StartRTCmp);
 }
 
+#ifdef CRAWDAD_UNUSED
 void peak_lists::clear_peaks_by_rts_its (  std::vector< std::vector<SlimCrawPeakPtr>::iterator > & rts_its ) {
 /*
             for ( int i = 0 ; i < rts_its.size(); i++ ) {
@@ -80,6 +81,7 @@ void peak_lists::clear_peaks_by_rts_its (  std::vector< std::vector<SlimCrawPeak
             }
 */
 }
+#endif
         
 
 
@@ -131,6 +133,7 @@ void peak_lists::clear_peak ( SlimCrawPeakPtr & p ) {
               break;
             }
         }
+        // TODO comparison between signed and unsigned integer expressions
         if ( rh_peak_idx == peak_peak_idxs.size() ) {
            rh_peak_idx--;
         }
@@ -594,8 +597,10 @@ void CrawPeakAnnotator::extend_to_lower_boundary ( SlimCrawPeak & peak , float a
    float intensity_at_lh_bound = this->pf->chrom[peak.start_rt_idx];
    float intensity_at_rh_bound = this->pf->chrom[peak.stop_rt_idx];
 
+#ifdef CRAWDAD_UNUSED
    ///fraction of the difference in intensity between the two peak edges to which the more intense one has to fall...
    float fraction_of_intensity_difference = 1.0f;
+#endif
    
    int max_distance         = std::max( peak.peak_rt_idx - peak.start_rt_idx , peak.stop_rt_idx - peak.peak_rt_idx);
    int min_distance         = std::min( peak.peak_rt_idx - peak.start_rt_idx , peak.stop_rt_idx - peak.peak_rt_idx);

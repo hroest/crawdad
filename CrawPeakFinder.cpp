@@ -156,6 +156,7 @@ public:
 	}
 };
 
+#ifdef CRAWDAD_UNUSED
 static bool lessThanIndex(const PVIndexType &l,const PVIndexType &r)
 {
     return (l.index < r.index);
@@ -232,7 +233,7 @@ void BaseCrawPeakFinder::peaks_and_valleys_fast( std::vector<float> & c ) {
 
   
 }
-
+#endif // CRAWDAD_UNUSED
 
 void BaseCrawPeakFinder::peaks_and_valleys_brendanx( std::vector<float> & c ) {
 
@@ -312,6 +313,7 @@ void BaseCrawPeakFinder::peaks_and_valleys_brendanx( std::vector<float> & c ) {
 #endif
 }
 
+#ifdef CRAWDAD_UNUSED
 void BaseCrawPeakFinder::peaks_and_valleys_slow( std::vector<float> & c ) {
     
     std::map<int,char  > all_trans;
@@ -367,6 +369,7 @@ void BaseCrawPeakFinder::peaks_and_valleys_slow( std::vector<float> & c ) {
     
 }
 
+#endif // CRAWDAD_UNUSED
 
 void BaseCrawPeakFinder::get_2d_chrom( const std::vector<float> & in_chrom,
 				       std::vector<float> & out_chrom ) {
