@@ -106,7 +106,7 @@ public :
 
 
   SlimCrawPeak(  int start_idx, int stop_idx, int peak_idx, const std::vector<float> & raw , std::vector<float> & scratch, int mz_idx = -1 );
-  ~SlimCrawPeak() {
+  virtual ~SlimCrawPeak() {
     #ifdef DEBUG
     delcnt++;
     #endif
