@@ -16,10 +16,23 @@ filters/GaussSmoother.cpp
 CrawdadWrapper.cpp  
 )
 
-add_library(Crawdad ${my_sources})
+## platform dependent compiler flags:
+include(CheckCXXCompilerFlag)
+if (NOT WIN32) # we only want fPIC on non-windows systems (fPIC is implicitly true there)
+  CHECK_CXX_COMPILER_FLAG("-fPIC" WITH_FPIC)
+  if (WITH_FPIC)
+    add_definitions(-fPIC)
+  endif()
 
-add_definitions(-Wall -Wextra -Wno-non-virtual-dtor -Wno-long-long -Wno-variadic-macros)
-add_definitions(--pedantic)
+  # Only add those definitions on non-windows systems
+  add_definitions(-Wall -Wextra -Wno-non-virtual-dtor -Wno-long-long -Wno-variadic-macros)
+  add_definitions(--pedantic)
+
+  # Careful, this generates several hundred warnings ... 
+  add_definitions(-Wconversion)
+endif()
+
+add_library(Crawdad ${my_sources})
 
 add_executable(SimpleTest SimpleTest.C)
 target_link_libraries(SimpleTest Crawdad)
